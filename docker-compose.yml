@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres:15-alpine
+    container_name: shop-postgres
+    restart: always
+    environment:
+      POSTGRES_USER: shop_user
+      POSTGRES_PASSWORD: shop
+      POSTGRES_DB: shop_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - shop_pg_data:/var/lib/postgresql/data
+
+volumes:
+  shop_pg_data:
