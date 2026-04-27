@@ -5,7 +5,6 @@ import com.xiang.shop.entity.Product;
 import com.xiang.shop.dto.ApiResponse;
 import com.xiang.shop.service.ProductService;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +13,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/products")
 public class ProductController {

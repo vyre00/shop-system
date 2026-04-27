@@ -10,9 +10,9 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @OpenAPIDefinition(
         info = @Info(
-                title = "交易平台 API 文件",
+                title = "交易平台API文件",
                 version = "1.0",
-                description = "JWT 驗證"
+                description = "JWT驗證"
         ),
         security = @SecurityRequirement(name = "Bearer Authentication")
 )

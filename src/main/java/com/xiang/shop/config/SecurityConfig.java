@@ -19,7 +19,7 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
     private final CustomSecurityExceptionHandler securityExceptionHandler;
 
-    // 註冊 BCrypt 加密
+    // 密碼透過 BCrypt 加密
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -37,10 +37,11 @@ public class SecurityConfig {
                 .requestMatchers("/swagger-ui/**", "/v3/api-docs/**", "/swagger-ui.html", "/error").permitAll()
                 .requestMatchers("/users/login").permitAll()
 
-                // 設定 ADMIN 才能呼叫 新增/修改/刪除 products API
+                // 設定角色權限
                 .requestMatchers(HttpMethod.POST, "/products/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PUT, "/products/**").hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE, "/products/**").hasRole("ADMIN")
+                .requestMatchers(HttpMethod.POST, "/orders/checkout").hasAnyRole("USER", "ADMIN")
 
                 // 其他請求只要有登入就可以看
                 .anyRequest().authenticated()

@@ -13,7 +13,7 @@ import java.io.IOException;
 @Component
 public class CustomSecurityExceptionHandler implements AuthenticationEntryPoint, AccessDeniedHandler {
 
-    // 處理未登入
+    // 處理[未登入]訊息
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         response.setContentType("application/json;charset=UTF-8");
@@ -21,7 +21,7 @@ public class CustomSecurityExceptionHandler implements AuthenticationEntryPoint,
         response.getWriter().write("{\"status\": 401, \"error\": \"Unauthorized\", \"message\": \"請先登入會員！\"}");
     }
 
-    // 處理權限不足
+    // 處理[權限不足]訊息
     @Override
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
         response.setContentType("application/json;charset=UTF-8");

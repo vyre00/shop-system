@@ -5,7 +5,6 @@ import com.xiang.shop.entity.Product;
 import com.xiang.shop.exception.AppException;
 import com.xiang.shop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -14,7 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class ProductService {
 

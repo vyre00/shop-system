@@ -6,12 +6,10 @@ import com.xiang.shop.exception.AppException;
 import com.xiang.shop.repository.UserRepository;
 import com.xiang.shop.util.JwtUtil;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
-@Slf4j
 @RequiredArgsConstructor
 public class UserService {
 
