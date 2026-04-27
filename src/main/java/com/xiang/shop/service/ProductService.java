@@ -2,8 +2,10 @@ package com.xiang.shop.service;
 
 import com.xiang.shop.dto.ProductRequest;
 import com.xiang.shop.entity.Product;
+import com.xiang.shop.exception.AppException;
 import com.xiang.shop.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -12,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
 
 @Service
+@Slf4j
 @RequiredArgsConstructor
 public class ProductService {
 
@@ -58,7 +61,7 @@ public class ProductService {
     public Product getProductById(Long id) {
 
         return productRepository.findByIdAndDeletedAtIsNull(id)
-                .orElseThrow(() -> new RuntimeException("查無該項商品！(ID: " + id + ")"));
+                .orElseThrow(() -> new AppException(404, "查無該項商品！(ID: " + id + ")"));
 
     }
 

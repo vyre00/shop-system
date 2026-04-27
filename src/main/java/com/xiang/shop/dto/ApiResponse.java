@@ -1,6 +1,5 @@
-package com.xiang.shop.repository;
+package com.xiang.shop.dto;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

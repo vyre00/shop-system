@@ -2,9 +2,10 @@ package com.xiang.shop.controller;
 
 import com.xiang.shop.dto.ProductRequest;
 import com.xiang.shop.entity.Product;
-import com.xiang.shop.repository.ApiResponse;
+import com.xiang.shop.dto.ApiResponse;
 import com.xiang.shop.service.ProductService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -13,6 +14,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+@Slf4j
 @RequiredArgsConstructor
 @RequestMapping("/products")
 public class ProductController {
@@ -53,6 +55,7 @@ public class ProductController {
 
         Product product = productService.getProductById(id);
         return ResponseEntity.ok(new ApiResponse<>(200, "查詢成功", product));
+
     }
 
     // 查詢商品列表 (GET /products?page=0&size=10)
