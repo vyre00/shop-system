@@ -12,5 +12,16 @@ services:
     volumes:
       - shop_pg_data:/var/lib/postgresql/data
 
+  app:
+    build: .
+    container_name: shop-app
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/shop_db
+
 volumes:
   shop_pg_data:
